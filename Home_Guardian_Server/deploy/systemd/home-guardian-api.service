@@ -1,0 +1,37 @@
+[Unit]
+Description=Home Guardian FastAPI backend (uvicorn)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+UMask=0027
+# User/Group 은 remote-install.sh 가 HG_RPI_USER (없으면 현재 ssh user) 로 치환한다.
+User=__HG_RPI_USER__
+Group=__HG_RPI_USER__
+WorkingDirectory=/srv/home-guardian/Home_Guardian
+Environment=PYTHONUNBUFFERED=1
+Environment=PYTHONDONTWRITEBYTECODE=1
+Environment=HOME_GUARDIAN_DB_PATH=/srv/home-guardian/runtime/home_guardian.sqlite3
+Environment=HG_NVD_CACHE_PATH=/srv/home-guardian/runtime/nvd-cache-v1.json
+EnvironmentFile=/etc/home-guardian/auth.env
+# nginx is the only local reverse proxy allowed to supply the client address
+# for guardian invitation rate limiting. Do not add public addresses here.
+Environment=HG_TRUSTED_PROXY_HOSTS=127.0.0.1,::1
+# The deployed unit is always production; do not let a copied development
+# marker reactivate test-only authentication fallbacks.
+Environment=HG_RUNTIME_ENV=production
+# The Raspberry Pi may perform the documented Family Hub/Spotify ZeroConf
+# probe on the scan subnet when Android cannot reach that LAN service.
+# It still returns private evidence only; DevicePresentation decides whether a
+# product name is proven enough for residents.
+Environment=HG_SERVER_PROTOCOL_PROBE=1
+Environment=HG_SERVER_NEIGHBOR_PING_SWEEP=1
+ExecStart=__HG_VENV_DIR__/bin/python -m uvicorn backend.app.main:app --host 127.0.0.1 --port 8010
+Restart=on-failure
+RestartSec=3
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

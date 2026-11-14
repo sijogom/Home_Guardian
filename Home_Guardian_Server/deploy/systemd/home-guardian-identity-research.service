@@ -1,0 +1,34 @@
+[Unit]
+Description=Home Guardian official product identity research worker
+After=network-online.target home-guardian-api.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=__HG_RPI_USER__
+Group=__HG_RPI_USER__
+UMask=0027
+WorkingDirectory=/srv/home-guardian/Home_Guardian
+Environment=PYTHONUNBUFFERED=1
+Environment=PYTHONDONTWRITEBYTECODE=1
+Environment=HG_RUNTIME_ENV=production
+Environment=HOME_GUARDIAN_DB_PATH=/srv/home-guardian/runtime/home_guardian.sqlite3
+Environment=HG_IDENTITY_RESEARCH_WAKE_PATH=/srv/home-guardian/runtime/identity-research/wake
+EnvironmentFile=/etc/home-guardian/auth.env
+ExecStart=/usr/bin/flock --nonblock --conflict-exit-code=75 /srv/home-guardian/runtime/identity-research/worker.lock __HG_VENV_DIR__/bin/python -m backend.app.identity_research_worker
+SuccessExitStatus=75
+TimeoutStartSec=60s
+Nice=10
+NoNewPrivileges=true
+PrivateDevices=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ReadWritePaths=/srv/home-guardian/runtime
+ProtectControlGroups=true
+ProtectKernelLogs=true
+ProtectKernelModules=true
+ProtectKernelTunables=true
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+RestrictSUIDSGID=true
+

@@ -1,0 +1,11 @@
+[Unit]
+Description=Wake Home Guardian product research after a scan
+After=home-guardian-api.service
+
+[Path]
+PathChanged=/srv/home-guardian/runtime/identity-research/wake
+Unit=home-guardian-identity-research.service
+
+[Install]
+WantedBy=multi-user.target
+

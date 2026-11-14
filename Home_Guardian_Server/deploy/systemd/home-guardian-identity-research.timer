@@ -1,0 +1,14 @@
+[Unit]
+Description=Recover missed Home Guardian product research runs
+After=network-online.target
+Wants=network-online.target
+
+[Timer]
+OnBootSec=2min
+OnUnitInactiveSec=1min
+AccuracySec=15s
+RandomizedDelaySec=15s
+Unit=home-guardian-identity-research.service
+
+[Install]
+WantedBy=timers.target

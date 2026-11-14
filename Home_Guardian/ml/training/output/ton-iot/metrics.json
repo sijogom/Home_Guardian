@@ -1,0 +1,69 @@
+{
+  "dataset": "ton-iot",
+  "rows_loaded": 100000,
+  "feature_count": 42,
+  "attack_ratio_train": 0.7626875,
+  "attack_ratio_test": 0.7627,
+  "models": [
+    {
+      "model": "random_forest",
+      "accuracy": 0.9998,
+      "precision": 0.9998033560566335,
+      "recall": 0.9999344434246755,
+      "f1": 0.9998688954441167,
+      "roc_auc": 0.9999996823006252,
+      "confusion_matrix": [
+        [
+          4743,
+          3
+        ],
+        [
+          1,
+          15253
+        ]
+      ],
+      "fit_seconds": 1.189,
+      "predict_seconds": 0.105
+    },
+    {
+      "model": "isolation_forest",
+      "accuracy": 0.4584,
+      "precision": 0.9225917431192661,
+      "recall": 0.31644158909138587,
+      "f1": 0.4712486576198379,
+      "roc_auc": 0.854493548243976,
+      "confusion_matrix": [
+        [
+          4341,
+          405
+        ],
+        [
+          10427,
+          4827
+        ]
+      ],
+      "fit_seconds": 0.189,
+      "predict_seconds": 0.16
+    },
+    {
+      "model": "stacking",
+      "accuracy": 0.99975,
+      "precision": 0.9997378252605361,
+      "recall": 0.9999344434246755,
+      "f1": 0.9998361246763462,
+      "roc_auc": 0.999999765178723,
+      "confusion_matrix": [
+        [
+          4742,
+          4
+        ],
+        [
+          1,
+          15253
+        ]
+      ],
+      "fit_seconds": 21.729,
+      "predict_seconds": 0.136
+    }
+  ]
+}

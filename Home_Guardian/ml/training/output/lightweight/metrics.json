@@ -1,0 +1,92 @@
+{
+  "dataset": "lightweight-cic-unsw-8feat",
+  "description": "Lightweight 8-feature LAN scan inference model. Combined training on CIC-IoT-2023 (class-balanced sampling) and UNSW-NB15 (full training set), mapping each dataset's binary service/protocol flags and categorical service/proto columns to LAN scan semantic proxy features. No synthetic data. Labels are each dataset's original 0/1. Metrics use one random_state=7 row-level 80/20 holdout and are not field accuracy. The full 42~46 feature traffic models in ../{unsw-nb15,ton-iot,cic-iot-2023}/ are kept for academic F1 metrics and future traffic-capture extension (RPi mode).",
+  "source": {
+    "datasets": [
+      "CIC-IoT-2023 (selected LAN-related attack-category proxy rows)",
+      "UNSW-NB15 (selected LAN-related attack-category proxy rows)"
+    ],
+    "cic_attack_categories": [
+      "backdoor_malware",
+      "browserhijacking",
+      "commandinjection",
+      "dictionarybruteforce",
+      "dictionarybrutforce",
+      "dns_spoofing",
+      "mitm-arpspoofing",
+      "recon-hostdiscovery",
+      "recon-osscan",
+      "recon-pingsweep",
+      "recon-portscan",
+      "sqlinjection",
+      "uploading_attack",
+      "vulnerabilityscan",
+      "xss"
+    ],
+    "unsw_attack_categories": [
+      "Reconnaissance",
+      "Backdoor",
+      "Shellcode",
+      "Exploits"
+    ],
+    "rows_cic": 30000,
+    "rows_unsw": 52589,
+    "total_rows": 82589,
+    "feature_count": 8,
+    "feature_names": [
+      "open_ports_count",
+      "dangerous_ports_count",
+      "risk_signals_count",
+      "services_count",
+      "default_credentials",
+      "telnet_or_ssh_open",
+      "rtsp_or_onvif_open",
+      "upnp_or_iot_camera_open"
+    ],
+    "note": "Trained on raw rows from CIC-IoT-2023 and UNSW-NB15 restricted to attack categories selected as LAN-related proxies (port scans, vulnerability scans, ARP/DNS spoofing, brute-force, backdoor/exploit traffic). DDoS/DoS/Mirai flood categories are intentionally excluded — they require traffic capture (RPi extension track) and are not represented by this LAN-scan proxy model. This offline holdout is not field accuracy or evidence that every network device is detectable."
+  },
+  "attack_ratio_train": 0.37037429431974694,
+  "attack_ratio_test": 0.37038382370747064,
+  "models": [
+    {
+      "model": "random_forest",
+      "accuracy": 0.6222302942244824,
+      "precision": 0.49262215771649737,
+      "recall": 0.6657404380516508,
+      "f1": 0.5662449603781454,
+      "roc_auc": 0.6875275589684915,
+      "confusion_matrix": [
+        [
+          6205,
+          4195
+        ],
+        [
+          2045,
+          4073
+        ]
+      ],
+      "predict_seconds": 0.091,
+      "fit_seconds": 1.242
+    },
+    {
+      "model": "stacking",
+      "accuracy": 0.6940307543286112,
+      "precision": 0.705564142194745,
+      "recall": 0.2984635501797973,
+      "f1": 0.41948081782678615,
+      "roc_auc": 0.6875275589684915,
+      "confusion_matrix": [
+        [
+          9638,
+          762
+        ],
+        [
+          4292,
+          1826
+        ]
+      ],
+      "predict_seconds": 0.128,
+      "fit_seconds": 5.054
+    }
+  ]
+}

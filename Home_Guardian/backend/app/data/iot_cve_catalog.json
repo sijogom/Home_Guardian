@@ -1,0 +1,525 @@
+{
+  "_meta": {
+    "description": "Home Guardian 가정용 IoT 디바이스의 검증된 오프라인 CVE 참조 카탈로그. NVD API 2.0 동적 조회의 hot cache 역할. vendor/product 기준 매칭. severity = NVD CVSS v3 base 또는 v2.",
+    "source": "MITRE CVE / NVD (https://nvd.nist.gov) 확인된 가정용 IoT CVE 발췌",
+    "updated_at": "2026-06-18",
+    "verification": "2026-06-18 독립 재검증: 주요 CVE(다제품 벤더·카메라·한국 가전·2026 신규 등 약 20건)를 NVD 페이지로 번호·제품·severity·요약 4개 차원 직접 확인하고, 전체 요약을 NVD 취약점 유형과 대조함. 정정 10건 — 분류 3(CVE-2019-15799 부재·CVE-2020-7847 제품 router→nas·CVE-2019-9564 severity high→critical), cvss 정확성 4(Foscam·Hikvision·EZVIZ·Belkin NVD 3.x 통일), 요약 3(Foscam·TP-Link 21833·Dahua 33045 취약점유형/제품 정정). 이전 'NVD 검증' 기록을 의존하지 않은 독립 corroboration."
+  },
+  "vendors": {
+    "samsung": {
+      "aliases": [
+        "samsung",
+        "삼성",
+        "samsung electronics"
+      ],
+      "products": {
+        "smartthings hub": [
+          {
+            "cve_id": "CVE-2018-3856",
+            "severity": "critical",
+            "cvss": 9.9,
+            "summary_ko": "삼성 SmartThings 허브에서 연결된 카메라 설정 처리의 결함으로 외부에서 임의 명령이 실행될 수 있어 허브가 장악될 위험이 있어요.",
+            "remediation_ko": "SmartThings 앱에서 허브 펌웨어를 최신으로 업데이트해 주세요."
+          }
+        ],
+        "family hub": []
+      }
+    },
+    "lg": {
+      "aliases": [
+        "lg",
+        "lge",
+        "lg electronics"
+      ],
+      "products": {
+        "webos tv": [
+          {
+            "cve_id": "CVE-2023-6317",
+            "severity": "critical",
+            "cvss": 9.8,
+            "summary_ko": "LG WebOS TV 일부 펌웨어에서 PIN 인증을 우회해 권한 있는 계정을 만들 수 있어, 같은 네트워크의 다른 기기가 TV 제어권을 얻을 수 있어요.",
+            "remediation_ko": "TV 설정 → 일반 → 정보 → 소프트웨어 업데이트를 실행해 주세요."
+          },
+          {
+            "cve_id": "CVE-2023-6319",
+            "severity": "critical",
+            "cvss": 9.1,
+            "summary_ko": "LG WebOS TV 일부 모델에서 명령 주입으로 외부에서 코드가 실행될 수 있어 TV가 완전히 장악될 위험이 있어요.",
+            "remediation_ko": "TV 설정 → 일반 → 정보 → 소프트웨어 업데이트를 실행해 주세요."
+          }
+        ],
+        "thinq": []
+      }
+    },
+    "hikvision": {
+      "aliases": [
+        "hikvision",
+        "hik"
+      ],
+      "products": {
+        "ip camera": [
+          {
+            "cve_id": "CVE-2017-7921",
+            "severity": "critical",
+            "cvss": 9.8,
+            "summary_ko": "Hikvision IP 카메라에 인증 우회(백도어)가 있어 비밀번호 없이 영상이 노출될 수 있어요.",
+            "remediation_ko": "카메라 펌웨어를 2017년 이후 버전으로 업데이트하고 관리자 비밀번호를 새로 설정해 주세요."
+          },
+          {
+            "cve_id": "CVE-2021-36260",
+            "severity": "critical",
+            "cvss": 9.8,
+            "summary_ko": "Hikvision IP 카메라 일부 모델에 명령 주입 취약점이 있어 외부에서 카메라를 제어당할 수 있어요(미라이 봇넷이 공격에 사용).",
+            "remediation_ko": "카메라 펌웨어를 즉시 최신으로 업데이트하고 원격 접속(외부 포트포워딩)을 꺼 주세요."
+          }
+        ]
+      }
+    },
+    "dahua": {
+      "aliases": [
+        "dahua"
+      ],
+      "products": {
+        "ip camera": [
+          {
+            "cve_id": "CVE-2021-33044",
+            "severity": "critical",
+            "cvss": 9.8,
+            "summary_ko": "Dahua 카메라/NVR 일부 모델에서 인증 우회로 영상이 노출될 수 있어요.",
+            "remediation_ko": "Dahua DSS 또는 NetSurveillance 앱에서 펌웨어를 업데이트해 주세요."
+          },
+          {
+            "cve_id": "CVE-2021-33045",
+            "severity": "critical",
+            "cvss": 9.8,
+            "summary_ko": "Dahua 카메라/NVR 일부 모델에서 조작된 패킷으로 로그인 인증을 우회해, 외부에서 기기에 접속하거나 영상에 접근당할 수 있어요.",
+            "remediation_ko": "Dahua 공식 사이트에서 펌웨어를 최신으로 업데이트하고, 외부 원격 접속 포트를 닫아 주세요."
+          }
+        ]
+      }
+    },
+    "tp-link": {
+      "aliases": [
+        "tp-link",
+        "tplink",
+        "tp link"
+      ],
+      "products": {
+        "archer router": [
+          {
+            "cve_id": "CVE-2023-1389",
+            "severity": "high",
+            "cvss": 8.8,
+            "summary_ko": "TP-Link Archer AX21 라우터 일부 펌웨어에 명령 주입 취약점이 있어 외부에서 라우터를 점령당할 수 있어요(미라이 변종 공격 보고).",
+            "remediation_ko": "TP-Link 공식 사이트에서 최신 펌웨어를 받아 적용해 주세요."
+          },
+          {
+            "cve_id": "CVE-2024-21833",
+            "severity": "high",
+            "cvss": 8.8,
+            "summary_ko": "TP-Link Archer·Deco 일부 가정용 라우터에 명령 주입 취약점이 있어, 인접한 네트워크에서 인증 없이 라우터에 명령을 실행할 수 있어요.",
+            "remediation_ko": "TP-Link 공식 사이트에서 라우터 펌웨어를 최신으로 업데이트해 주세요."
+          }
+        ],
+        "tapo camera": [
+          {
+            "cve_id": "CVE-2023-41184",
+            "severity": "high",
+            "cvss": 8.0,
+            "summary_ko": "TP-Link Tapo C210 카메라에 원격 코드 실행 취약점이 있어 외부에서 카메라를 조종당할 수 있어요.",
+            "remediation_ko": "Tapo 앱에서 카메라 펌웨어를 최신으로 업데이트하고 비밀번호를 새로 만들어 주세요."
+          },
+          {
+            "cve_id": "CVE-2026-0918",
+            "severity": "high",
+            "cvss": 7.5,
+            "summary_ko": "TP-Link Tapo C100·C220·C520WS 카메라에 약점이 있어, 공격자가 카메라를 잠시 멈추게(작동 불능) 만들 수 있어요. 영상이 유출되는 종류는 아니지만 카메라가 잠깐 꺼질 수 있어요.",
+            "remediation_ko": "Tapo 앱에서 카메라 펌웨어를 최신으로 업데이트해 주세요."
+          }
+        ]
+      }
+    },
+    "iptime(efm)": {
+      "aliases": [
+        "iptime",
+        "efm",
+        "efm networks",
+        "ipTIME"
+      ],
+      "products": {
+        "router": [],
+        "nas": [
+          {
+            "cve_id": "CVE-2020-7847",
+            "severity": "high",
+            "cvss": 8.0,
+            "summary_ko": "ipTIME NAS 일부 버전의 게시판 업로드 기능에 파일 형식 제한이 없어, 공격자가 악성 파일을 올려 기기에서 원격으로 명령을 실행할 수 있었어요.",
+            "remediation_ko": "ipTIME 공식 사이트에서 NAS 최신 펌웨어를 받아 적용하고, 외부에서 접속하는 기능을 꺼 주세요."
+          }
+        ]
+      }
+    },
+    "d-link": {
+      "aliases": [
+        "d-link",
+        "dlink"
+      ],
+      "products": {
+        "router": [
+          {
+            "cve_id": "CVE-2019-16920",
+            "severity": "critical",
+            "cvss": 9.8,
+            "summary_ko": "D-Link 일부 라우터에 명령 주입 취약점이 있어 외부에서 명령이 실행될 수 있어요.",
+            "remediation_ko": "D-Link 펌웨어 업데이트를 적용해 주세요. 단종 모델이면 교체를 고려해 주세요."
+          }
+        ],
+        "nas": [
+          {
+            "cve_id": "CVE-2024-3273",
+            "severity": "critical",
+            "cvss": 9.8,
+            "summary_ko": "D-Link NAS 단종 모델에 백도어 계정이 있어 외부 접속이 가능합니다.",
+            "remediation_ko": "단종 모델은 패치되지 않습니다. 인터넷 노출을 차단하거나 교체해 주세요."
+          }
+        ],
+        "ip camera": [
+          {
+            "cve_id": "CVE-2017-17020",
+            "severity": "high",
+            "cvss": 8.8,
+            "summary_ko": "D-Link DCS-5009·DCS-5010 등 일부 가정용 카메라 펌웨어에 원격 코드 실행 취약점이 있어 외부에서 카메라를 조종당할 수 있어요.",
+            "remediation_ko": "mydlink 앱이나 D-Link 사이트에서 펌웨어를 최신으로 업데이트하고, 단종 모델이면 교체를 고려해 주세요."
+          }
+        ]
+      }
+    },
+    "foscam": {
+      "aliases": [
+        "foscam"
+      ],
+      "products": {
+        "ip camera": [
+          {
+            "cve_id": "CVE-2018-6830",
+            "severity": "high",
+            "cvss": 7.5,
+            "summary_ko": "Foscam 카메라 일부 모델에 경로 조작(디렉터리 traversal) 취약점이 있어, 외부에서 기기에 저장된 파일을 삭제할 수 있어요.",
+            "remediation_ko": "Foscam 앱이나 제조사 사이트에서 카메라 펌웨어를 최신으로 업데이트해 주세요."
+          }
+        ]
+      }
+    },
+    "wyze": {
+      "aliases": [
+        "wyze"
+      ],
+      "products": {
+        "cam": [
+          {
+            "cve_id": "CVE-2019-9564",
+            "severity": "critical",
+            "cvss": 9.8,
+            "summary_ko": "Wyze 카메라 일부 버전의 로그인 인증을 우회할 수 있어, 외부에서 카메라 영상에 접근하거나 카메라를 조종당할 수 있어요.",
+            "remediation_ko": "Wyze 앱에서 카메라 펌웨어를 최신으로 업데이트하고, 외부 원격 보기를 잠시 꺼 주세요."
+          }
+        ]
+      }
+    },
+    "ezviz": {
+      "aliases": [
+        "ezviz",
+        "hangzhou ezviz",
+        "이지비즈"
+      ],
+      "products": {
+        "ip camera": [
+          {
+            "cve_id": "CVE-2022-2471",
+            "severity": "critical",
+            "cvss": 9.8,
+            "summary_ko": "EZVIZ 카메라 여러 모델(CS-CV248 등)의 모션 감지 처리에 버퍼 오버플로 취약점이 있어 외부에서 카메라가 장악될 수 있어요.",
+            "remediation_ko": "EZVIZ 앱에서 카메라 펌웨어를 최신으로 업데이트하고 외부 원격 접속(포트포워딩)을 꺼 주세요."
+          }
+        ]
+      }
+    },
+    "reolink": {
+      "aliases": [
+        "reolink"
+      ],
+      "products": {
+        "ip camera": [
+          {
+            "cve_id": "CVE-2020-25169",
+            "severity": "high",
+            "cvss": 7.5,
+            "summary_ko": "Reolink P2P 카메라가 통신 데이터를 충분히 보호하지 않아 영상·개인정보가 외부에 노출될 수 있어요.",
+            "remediation_ko": "Reolink 앱에서 펌웨어를 업데이트하고, 사용하지 않으면 P2P/원격 접속을 꺼 주세요."
+          }
+        ]
+      }
+    },
+    "sonos": {
+      "aliases": [
+        "sonos"
+      ],
+      "products": {
+        "speaker": [
+          {
+            "cve_id": "CVE-2018-11316",
+            "severity": "critical",
+            "cvss": 9.6,
+            "summary_ko": "Sonos 무선 스피커의 UPnP 서버에 DNS 리바인딩 취약점이 있어 외부 웹사이트가 스피커를 제어할 수 있어요.",
+            "remediation_ko": "Sonos 앱에서 시스템 업데이트를 적용하고 공유기에서 UPnP를 꺼 주세요."
+          }
+        ]
+      }
+    },
+    "qnap": {
+      "aliases": [
+        "qnap"
+      ],
+      "products": {
+        "nas": [
+          {
+            "cve_id": "CVE-2022-27593",
+            "severity": "critical",
+            "cvss": 10.0,
+            "summary_ko": "QNAP NAS의 Photo Station에 취약점이 있어 외부 공격자가 파일을 조작할 수 있어요(DeadBolt 랜섬웨어 공격에 악용됐어요).",
+            "remediation_ko": "QTS/Photo Station을 즉시 최신으로 업데이트하고 NAS의 인터넷 직접 노출(포트포워딩)을 꺼 주세요."
+          }
+        ]
+      }
+    },
+    "netgear": {
+      "aliases": [
+        "netgear"
+      ],
+      "products": {
+        "router": [
+          {
+            "cve_id": "CVE-2021-34991",
+            "severity": "high",
+            "cvss": 8.8,
+            "summary_ko": "Netgear R6400v2 등 일부 공유기에 인증 없이 원격 코드 실행이 가능한 취약점이 있어요.",
+            "remediation_ko": "Netgear Nighthawk 앱이나 공식 사이트에서 펌웨어를 최신으로 업데이트해 주세요."
+          }
+        ]
+      }
+    },
+    "asus": {
+      "aliases": [
+        "asus",
+        "asustek",
+        "asuswrt"
+      ],
+      "products": {
+        "router": [
+          {
+            "cve_id": "CVE-2017-6549",
+            "severity": "high",
+            "cvss": 8.8,
+            "summary_ko": "ASUS RT-N56U·RT-AC66U 등 일부 공유기 관리 웹(httpd)에 세션 가로채기 취약점이 있어 다른 사람이 공유기 관리자 권한을 빼앗을 수 있어요.",
+            "remediation_ko": "ASUS Router 앱이나 공식 사이트에서 펌웨어를 최신으로 업데이트해 주세요."
+          }
+        ]
+      }
+    },
+    "xiaomi": {
+      "aliases": [
+        "xiaomi",
+        "mi router",
+        "miwifi"
+      ],
+      "products": {
+        "router": [
+          {
+            "cve_id": "CVE-2018-13023",
+            "severity": "high",
+            "cvss": 8.8,
+            "summary_ko": "샤오미 Mi Router 3 일부 펌웨어에 명령 주입 취약점이 있어 외부에서 공유기를 점령당할 수 있어요.",
+            "remediation_ko": "Mi Home 앱에서 공유기 펌웨어를 최신으로 업데이트해 주세요."
+          }
+        ]
+      }
+    },
+    "ubiquiti": {
+      "aliases": [
+        "ubiquiti",
+        "unifi",
+        "ubnt"
+      ],
+      "products": {
+        "router": [
+          {
+            "cve_id": "CVE-2016-7792",
+            "severity": "high",
+            "cvss": 8.8,
+            "summary_ko": "Ubiquiti UniFi 컨트롤러 일부 버전이 데이터베이스 접근을 제한하지 않아 외부에서 기기 정보를 빼낼 수 있어요.",
+            "remediation_ko": "UniFi 네트워크 컨트롤러를 최신 버전으로 업데이트해 주세요."
+          }
+        ]
+      }
+    },
+    "zyxel": {
+      "aliases": [
+        "zyxel"
+      ],
+      "products": {
+        "router": [
+          {
+            "cve_id": "CVE-2017-6884",
+            "severity": "high",
+            "cvss": 8.8,
+            "summary_ko": "Zyxel EMG2926 등 일부 가정용 공유기에 명령 주입 취약점이 있어 외부에서 공유기를 조종당할 수 있어요.",
+            "remediation_ko": "Zyxel 공식 사이트에서 펌웨어를 최신으로 업데이트해 주세요. 단종 모델이면 교체를 고려해 주세요."
+          }
+        ]
+      }
+    },
+    "linksys": {
+      "aliases": [
+        "linksys",
+        "belkin linksys"
+      ],
+      "products": {
+        "router": [
+          {
+            "cve_id": "CVE-2018-3955",
+            "severity": "high",
+            "cvss": 7.2,
+            "summary_ko": "Linksys E1200 등 ESeries 공유기에 명령 주입 취약점이 있어 외부에서 명령이 실행될 수 있어요.",
+            "remediation_ko": "Linksys 앱이나 공식 사이트에서 펌웨어를 최신으로 업데이트해 주세요."
+          }
+        ]
+      }
+    },
+    "amcrest": {
+      "aliases": [
+        "amcrest"
+      ],
+      "products": {
+        "ip camera": [
+          {
+            "cve_id": "CVE-2020-5735",
+            "severity": "high",
+            "cvss": 8.8,
+            "summary_ko": "Amcrest 카메라·NVR 일부 모델에 버퍼 오버플로 취약점이 있어 외부에서 기기를 조종당할 수 있어요.",
+            "remediation_ko": "Amcrest 앱이나 공식 사이트에서 펌웨어를 최신으로 업데이트하고 비밀번호를 새로 만들어 주세요."
+          }
+        ]
+      }
+    },
+    "belkin": {
+      "aliases": [
+        "belkin",
+        "wemo"
+      ],
+      "products": {
+        "smart plug": [
+          {
+            "cve_id": "CVE-2019-17094",
+            "severity": "high",
+            "cvss": 7.8,
+            "summary_ko": "Belkin Wemo 스마트 플러그 일부 모델에 버퍼 오버플로 취약점이 있어 외부에서 기기를 조종당할 수 있어요.",
+            "remediation_ko": "Wemo 앱에서 펌웨어를 최신으로 업데이트해 주세요."
+          }
+        ]
+      }
+    },
+    "tenda": {
+      "aliases": [
+        "tenda"
+      ],
+      "products": {
+        "router": [
+          {
+            "cve_id": "CVE-2018-16333",
+            "severity": "high",
+            "cvss": 7.5,
+            "summary_ko": "Tenda AC7·AC9 등 일부 가정용 공유기에 취약점이 있어 외부에서 공유기를 조종당할 수 있어요.",
+            "remediation_ko": "Tenda 공식 사이트에서 펌웨어를 최신으로 업데이트해 주세요. 단종 모델이면 교체를 고려해 주세요."
+          }
+        ]
+      }
+    },
+    "vivotek": {
+      "aliases": [
+        "vivotek"
+      ],
+      "products": {
+        "ip camera": [
+          {
+            "cve_id": "CVE-2013-4985",
+            "severity": "high",
+            "cvss": 7.5,
+            "summary_ko": "Vivotek 일부 IP 카메라에 인증 우회 취약점이 있어 외부에서 영상에 접근당할 수 있어요.",
+            "remediation_ko": "Vivotek 공식 사이트에서 펌웨어를 최신으로 업데이트하고 비밀번호를 새로 만들어 주세요. 오래된 모델이라 업데이트가 없으면 인터넷 노출을 차단하거나 교체해 주세요."
+          }
+        ]
+      }
+    },
+    "western digital": {
+      "aliases": [
+        "western digital",
+        "wd",
+        "wd my cloud",
+        "mycloud"
+      ],
+      "products": {
+        "nas": [
+          {
+            "cve_id": "CVE-2019-9949",
+            "severity": "high",
+            "cvss": 8.8,
+            "summary_ko": "Western Digital My Cloud 등 일부 NAS에 취약점이 있어 외부에서 저장된 파일에 접근·기기를 조종당할 수 있어요.",
+            "remediation_ko": "My Cloud 펌웨어를 최신으로 업데이트하고, 단종 모델이면 인터넷 노출을 차단하거나 교체해 주세요."
+          }
+        ]
+      }
+    },
+    "philips": {
+      "aliases": [
+        "philips",
+        "hue",
+        "signify"
+      ],
+      "products": {
+        "hue bridge": [
+          {
+            "cve_id": "CVE-2026-3562",
+            "severity": "high",
+            "cvss": 8.8,
+            "summary_ko": "Philips Hue Bridge 일부 버전에 인증 우회 취약점이 있어 외부에서 조명 허브를 조종당할 수 있어요.",
+            "remediation_ko": "Philips Hue 앱에서 브리지 펌웨어를 최신으로 업데이트해 주세요."
+          }
+        ]
+      }
+    }
+  },
+  "generic_signals": {
+    "telnet_open": {
+      "summary_ko": "Telnet 포트(23번)가 열려 있으면 비밀번호가 평문으로 오가서 다른 사람이 가로챌 수 있어요.",
+      "remediation_ko": "기기 설정에서 Telnet 기능을 꺼 주세요. 꺼지지 않으면 같은 와이파이에서 분리해 주세요."
+    },
+    "rtsp_open": {
+      "summary_ko": "카메라 영상 스트림(RTSP 554번)이 열려 있으면 외부에서 영상을 볼 수도 있어요.",
+      "remediation_ko": "카메라 앱에서 '외부 보기' 옵션을 끄고 비밀번호를 새로 만들어 주세요."
+    },
+    "default_credentials_possible": {
+      "summary_ko": "기기 비밀번호가 처음 설정 그대로일 가능성이 있어요. 가장 흔한 침해 경로예요.",
+      "remediation_ko": "기기 앱이나 관리자 페이지에서 비밀번호를 새로 만들어 주세요."
+    }
+  },
+  "vulnerable_server_banners": {
+    "boa": {
+      "match": "boa",
+      "cve_id": "CVE-2022-45956",
+      "severity": "medium",
+      "cvss": 5.3,
+      "summary_ko": "이 기기의 웹 관리 서버(Boa)는 2005년에 개발이 끝난 아주 오래된 소프트웨어예요. 알려진 인증 우회 약점(CVE-2022-45956)이 있어 다른 사람이 관리자 화면에 들어올 수도 있어요.",
+      "remediation_ko": "기기(주로 공유기) 제조사 사이트에서 최신 펌웨어로 업데이트해 주세요. 업데이트가 없으면 통신사나 제조사 고객센터에 문의해 주세요."
+    }
+  }
+}

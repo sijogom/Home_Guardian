@@ -1,0 +1,12 @@
+[Unit]
+Description=Home Guardian SQLite DB 백업
+After=home-guardian-api.service
+
+[Service]
+Type=oneshot
+# DB와 백업 디렉터리에만 접근 가능한 기존 Pi 서비스 계정으로 실행한다.
+# remote-install.sh가 실제 계정명으로 치환한다.
+User=__HG_RPI_USER__
+Group=__HG_RPI_USER__
+UMask=0027
+ExecStart=/srv/home-guardian-server/deploy/scripts/backup-db.sh

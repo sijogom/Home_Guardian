@@ -1,0 +1,18 @@
+fastapi>=0.115.0
+uvicorn[standard]>=0.30.0
+httpx>=0.27.0
+pytest>=8.0.0
+SQLAlchemy>=2.0,<3.0
+psycopg>=3.1,<4.0
+# Google 로그인 검증 및 FCM 알림의 직접 런타임 의존성.
+google-auth>=2.0,<3.0
+firebase-admin>=7.0,<8.0
+# 저장된 보안 점수 모델과 학습 데이터를 처리하는 직접 의존성.
+joblib==1.5.3
+numpy==2.4.4
+pandas==3.0.3
+scipy==1.17.1
+# Keep training/tests aligned with the serialized release model ABI.
+scikit-learn==1.8.0
+# NVD API 2.0 동적 CVE 조회(HG_NVD_LOOKUP=1 일 때). 검증된 로컬 reference catalog을 보조로 사용해 최신 CVE를 반영.
+nvdlib>=0.7.6

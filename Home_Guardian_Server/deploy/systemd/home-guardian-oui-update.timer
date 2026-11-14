@@ -1,0 +1,12 @@
+[Unit]
+Description=Home Guardian OUI DB 주간 자동 최신화 타이머
+
+[Timer]
+# 매주 일요일 04:30 + 최대 2시간 무작위 지연(IEEE 서버 부하 분산).
+OnCalendar=Sun *-*-* 04:30:00
+RandomizedDelaySec=2h
+# 시스템이 꺼져 있어 놓친 실행은 부팅 후 보충한다.
+Persistent=true
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,17 @@
+deploy/manifests/server-runtime-files.txt
+deploy/manifests/source-runtime-files.txt
+deploy/nginx/home-guardian.conf
+deploy/nginx/home-guardian.snippet.conf
+deploy/pyproject-prod.toml
+deploy/requirements-prod.txt
+deploy/scripts/backup-db.sh
+deploy/scripts/remote-install.sh
+deploy/scripts/update-oui-data.sh
+deploy/systemd/home-guardian-api.service
+deploy/systemd/home-guardian-db-backup.service
+deploy/systemd/home-guardian-db-backup.timer
+deploy/systemd/home-guardian-identity-research.path
+deploy/systemd/home-guardian-identity-research.service
+deploy/systemd/home-guardian-identity-research.timer
+deploy/systemd/home-guardian-oui-update.service
+deploy/systemd/home-guardian-oui-update.timer

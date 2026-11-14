@@ -1,0 +1,46 @@
+{
+  "expo": {
+    "name": "홈 가디언",
+    "slug": "home-guardian",
+    "version": "1.0.0",
+    "orientation": "default",
+    "icon": "./assets/icon.png",
+    "platforms": ["android"],
+    "plugins": ["./plugins/with-network-security", "./plugins/with-backup-disabled", "expo-secure-store"],
+    "android": {
+      "versionCode": 100,
+      "package": "com.homeguardian.app",
+      "googleServicesFile": "./google-services.json",
+      "allowBackup": false,
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon-foreground.png",
+        "backgroundColor": "#0f766e"
+      },
+      "permissions": [
+        "INTERNET",
+        "ACCESS_NETWORK_STATE",
+        "ACCESS_WIFI_STATE",
+        "ACCESS_FINE_LOCATION",
+        "CHANGE_WIFI_MULTICAST_STATE",
+        "NEARBY_WIFI_DEVICES",
+        "POST_NOTIFICATIONS"
+      ],
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "category": ["DEFAULT", "BROWSABLE"],
+          "data": [{ "scheme": "com.homeguardian.app" }]
+        },
+        {
+          "action": "VIEW",
+          "category": ["DEFAULT", "BROWSABLE"],
+          "data": [{ "scheme": "homeguardian" }]
+        }
+      ]
+    },
+    "scheme": "homeguardian",
+    "extra": {
+      "apiBaseUrl": ""
+    }
+  }
+}

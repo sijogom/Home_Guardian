@@ -1,0 +1,6 @@
+# 라즈베리파이로 scp 전송되어 bash 가 실행하는 shell script 는 반드시 LF 줄바꿈이어야 한다.
+# 첫 줄 `#!/usr/bin/env bash` 가 `bash\r` 로 해석되어 `env: 'bash\r': No such file or directory` 로 실패한다.
+# Windows git checkout 의 core.autocrlf=true 영향을 차단한다.
+*.sh text eol=lf
+
+# 다른 텍스트 파일은 git 의 자동 정규화에 맡긴다 (운영자별 환경 차이 유지).

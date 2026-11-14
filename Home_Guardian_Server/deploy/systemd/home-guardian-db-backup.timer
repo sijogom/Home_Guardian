@@ -1,0 +1,12 @@
+[Unit]
+Description=Home Guardian DB 일일 백업 타이머
+
+[Timer]
+# 매일 03:30 + 최대 30분 무작위 지연.
+OnCalendar=*-*-* 03:30:00
+RandomizedDelaySec=30m
+# 시스템이 꺼져 있어 놓친 백업은 부팅 후 보충한다.
+Persistent=true
+
+[Install]
+WantedBy=timers.target

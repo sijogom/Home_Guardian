@@ -1,0 +1,13 @@
+[Unit]
+Description=Home Guardian OUI(MAC 제조사) DB 최신화
+Documentation=https://standards-oui.ieee.org/oui/oui.csv
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=root
+Group=root
+UMask=0027
+# root 전용·비쓰기 가능 스크립트로 실행: OUI 교체 + API 재시작 권한 필요.
+ExecStart=/srv/home-guardian-server/deploy/scripts/update-oui-data.sh

@@ -1,0 +1,263 @@
+{
+  "schema_version": 2,
+  "profiles": [
+    {
+      "manufacturer": "Samsung",
+      "enabled": true,
+      "official_fqdns": ["www.samsung.com"],
+      "canary": [
+        {
+          "known_model": "RF85C90N1AP",
+          "impossible_model": "HGNOTREAL999",
+          "device_type": "fridge"
+        },
+        {
+          "known_model": "SM-F956N",
+          "impossible_model": "SM-FHGNOTREAL999",
+          "device_type": "phone"
+        },
+        {
+          "known_model": "SM-T720",
+          "impossible_model": "SM-THGNOTREAL999",
+          "device_type": "tablet"
+        }
+      ],
+      "positive_proof": {
+        "parser": "samsung_support_product",
+        "manufacturer_terms": ["Samsung"],
+        "device_type_terms": {
+          "fridge": ["냉장고", "refrigerator"],
+          "phone": ["스마트폰", "smartphone", "휴대폰", "phone", "갤럭시", "Galaxy"],
+          "tablet": ["태블릿", "tablet"]
+        }
+      },
+      "endpoints": [
+        {
+          "kind": "detail",
+          "url_template": "https://www.samsung.com/sec/support/model/{model}/",
+          "expected_device_type": "fridge"
+        },
+        {
+          "kind": "samsung_model_discovery",
+          "url_template": "https://www.samsung.com/sec/xhr/prdMdlSearch/"
+        }
+      ]
+    },
+    {
+      "manufacturer": "TP-Link",
+      "enabled": true,
+      "official_fqdns": ["www.tp-link.com"],
+      "canary": {
+        "known_model": "Archer AX73",
+        "impossible_model": "HGNOTREAL999",
+        "device_type": "router"
+      },
+      "positive_proof": {
+        "parser": "tp_link_product",
+        "manufacturer_terms": ["TP-Link"],
+        "device_type_terms": {
+          "router": ["공유기", "router"]
+        }
+      },
+      "endpoints": [
+        {
+          "kind": "detail",
+          "url_template": "https://www.tp-link.com/kr/home-networking/wifi-router/{model_slug}/",
+          "expected_device_type": "router"
+        }
+      ]
+    },
+    {
+      "manufacturer": "iptime(EFM)",
+      "enabled": true,
+      "official_fqdns": ["www.iptime.com"],
+      "canary": {
+        "known_model": "AX6000M",
+        "impossible_model": "HGNOTREAL999",
+        "device_type": "router"
+      },
+      "positive_proof": {
+        "parser": "iptime_download_category",
+        "manufacturer_terms": ["ipTIME"],
+        "device_type_terms": {
+          "router": []
+        }
+      },
+      "endpoints": [
+        {
+          "kind": "authoritative_category",
+          "url_template": "https://www.iptime.com/iptime/etc/down_prd_list.php?pct_id=15&model={model}",
+          "expected_device_type": "router"
+        }
+      ]
+    },
+    {
+      "manufacturer": "LG",
+      "enabled": true,
+      "official_fqdns": ["apiv2.lge.co.kr", "www.lge.co.kr"],
+      "canary": [
+        {
+          "known_model": "OLED77C4FNA",
+          "impossible_model": "HGNOTAREALLGMODEL999",
+          "device_type": "tv"
+        },
+        {
+          "known_model": "SQ06BCPWAJ",
+          "impossible_model": "HGNOTAREALLGMODEL999",
+          "device_type": "air_conditioner"
+        }
+      ],
+      "positive_proof": {
+        "parser": "lg_support_product",
+        "manufacturer_terms": ["LG전자"],
+        "device_type_terms": {
+          "tv": ["TV / 프로젝터", "올레드 TV"],
+          "air_conditioner": [
+            "에어컨/환기",
+            "벽걸이형 에어컨",
+            "스탠드형 에어컨",
+            "2in1 에어컨"
+          ]
+        }
+      },
+      "endpoints": [
+        {
+          "kind": "lg_support_discovery",
+          "url_template": "https://apiv2.lge.co.kr/searchsvc/ajax/v1/search/spt-psp-cst-sm-model?keyword={model}"
+        }
+      ]
+    },
+    {
+      "manufacturer": "Sonos",
+      "enabled": true,
+      "official_fqdns": ["support.sonos.com"],
+      "canary": {
+        "known_model": "Era 100",
+        "impossible_model": "HGNOTREAL999",
+        "device_type": "speaker"
+      },
+      "positive_proof": {
+        "parser": "sonos_support_product",
+        "manufacturer_terms": ["Sonos"],
+        "device_type_terms": {
+          "speaker": ["Speakers"]
+        }
+      },
+      "endpoints": [
+        {
+          "kind": "sonos_support_product",
+          "url_template": "https://support.sonos.com/en/products/{model_slug}",
+          "expected_device_type": "speaker"
+        }
+      ]
+    },
+    {
+      "manufacturer": "ASUS",
+      "enabled": true,
+      "official_fqdns": ["www.asus.com"],
+      "canary": {
+        "known_model": "RT-AX86U Pro",
+        "impossible_model": "HGNOTREAL999",
+        "device_type": "router"
+      },
+      "positive_proof": {
+        "parser": "asus_support_product",
+        "manufacturer_terms": ["ASUS"],
+        "device_type_terms": {
+          "router": ["WiFi Routers"]
+        }
+      },
+      "endpoints": [
+        {
+          "kind": "asus_support_discovery",
+          "url_template": "https://www.asus.com/support/api/product.asmx/GetPDSupportTab?website=us&pdhashedid=&pdid=99999&siteID=www&sitelang=&model={model}",
+          "expected_device_type": "router"
+        }
+      ]
+    },
+    {
+      "manufacturer": "Netgear",
+      "enabled": false,
+      "official_fqdns": ["www.netgear.com"],
+      "disabled_reason": "Search results are not accepted as exact product proof.",
+      "endpoints": [
+        {
+          "kind": "authoritative_catalog",
+          "url_template": "https://www.netgear.com/search/?q={model}"
+        }
+      ]
+    },
+    {
+      "manufacturer": "Sony",
+      "enabled": false,
+      "official_fqdns": ["www.sony.com"],
+      "disabled_reason": "The support route has not passed a model-specific positive-proof canary.",
+      "endpoints": [
+        {
+          "kind": "detail",
+          "url_template": "https://www.sony.com/electronics/support/product/{model_slug}"
+        }
+      ]
+    },
+    {
+      "manufacturer": "Hikvision",
+      "enabled": false,
+      "official_fqdns": ["www.hikvision.com"],
+      "disabled_reason": "Search results are not accepted as exact product proof.",
+      "endpoints": [
+        {
+          "kind": "authoritative_catalog",
+          "url_template": "https://www.hikvision.com/en/search/?q={model}"
+        }
+      ]
+    },
+    {
+      "manufacturer": "Dahua",
+      "enabled": false,
+      "official_fqdns": ["www.dahuasecurity.com"],
+      "disabled_reason": "Search results are not accepted as exact product proof.",
+      "endpoints": [
+        {
+          "kind": "authoritative_catalog",
+          "url_template": "https://www.dahuasecurity.com/search?keyword={model}"
+        }
+      ]
+    },
+    {
+      "manufacturer": "Apple",
+      "enabled": false,
+      "official_fqdns": ["support.apple.com"],
+      "disabled_reason": "Search results are not accepted as exact product proof.",
+      "endpoints": [
+        {
+          "kind": "authoritative_catalog",
+          "url_template": "https://support.apple.com/search?query={model}"
+        }
+      ]
+    },
+    {
+      "manufacturer": "Google",
+      "enabled": false,
+      "official_fqdns": ["store.google.com"],
+      "disabled_reason": "Search results are not accepted as exact product proof.",
+      "endpoints": [
+        {
+          "kind": "authoritative_catalog",
+          "url_template": "https://store.google.com/search?q={model}"
+        }
+      ]
+    },
+    {
+      "manufacturer": "Xiaomi",
+      "enabled": false,
+      "official_fqdns": ["www.mi.com"],
+      "disabled_reason": "Search results are not accepted as exact product proof.",
+      "endpoints": [
+        {
+          "kind": "authoritative_catalog",
+          "url_template": "https://www.mi.com/global/search/{model}"
+        }
+      ]
+    }
+  ]
+}
